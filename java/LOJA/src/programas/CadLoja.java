@@ -3,7 +3,7 @@ package programas;
 import entidades.Produto;
 
 public class CadLoja {
-	
+	//oie posso apagar isso
 	public static void main (String[]args) {
 		
 		Produto prod1 = new Produto("001","CAMISA");

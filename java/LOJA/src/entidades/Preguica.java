@@ -1,18 +1,15 @@
 package entidades;
 
 public class Preguica extends Animal{
-	private boolean sobeEmArvore;
 
-	public Preguica(String nome, int idade, boolean emiteSom, boolean sobeEmArvore) {
-		super(nome, idade, emiteSom);
-		this.sobeEmArvore = sobeEmArvore;
+	public Preguica(String nome, int idade) {
+		super(nome, idade);
+	}
+	public void sobeArvore() {
+		System.out.println("Correr Correr Correr");
+	}
+	public void somBicho() {
+		System.out.println("ZZZZzzzzzZZZZZ");
 	}
 
-	public boolean isSobeEmArvore() {
-		return sobeEmArvore;
-	}
-
-	public void setSobeEmArvore(boolean sobeEmArvore) {
-		this.sobeEmArvore = sobeEmArvore;
-	}
 }

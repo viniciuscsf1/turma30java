@@ -3,17 +3,13 @@ package entidades;
 public class Animal {
 	private String nome;
 	private int idade;
-	private boolean emiteSom;
+
 	
 	
-	public Animal(String nome, int idade, boolean emiteSom) {
+	public Animal(String nome, int idade) {
 		super();
 		this.nome = nome;
 		this.idade = idade;
-		if (idade <=0 ) {
-			System.out.println("Informe uma idade válida!");
-		}
-		this.emiteSom = emiteSom;
 	}
 
 
@@ -35,15 +31,9 @@ public class Animal {
 	public void setIdade(int idade) {
 		this.idade = idade;
 	}
-
-
-	public boolean isEmiteSom() {
-		return emiteSom;
-	}
-
-
-	public void setEmiteSom(boolean emiteSom) {
-		this.emiteSom = emiteSom;
+	
+	public void emiteSom () {
+		System.out.println("Emitindo o som do bicho... ");
 	}
 
 }
