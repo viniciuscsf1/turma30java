@@ -10,7 +10,7 @@ import classesEcommerce.Funcoes;
 import java.util.List;
 import java.util.Scanner;
 
-public class DevSaudavel extends Funcoes {
+public class programa extends Funcoes {
 
 	public static void main(String[] args) {
 		Scanner ler = new Scanner(System.in);
@@ -31,7 +31,7 @@ public class DevSaudavel extends Funcoes {
 		lista.add(new Produto("G3-09","BCAA CAPS",50.00,10));
 		lista.add(new Produto("G3-10","Corda P.",22.00,10));
 		
-		apresentaTabela(lista);
+		apresentaTabela(lista, lista);
 
 			System.out.print("\nDigite o código do produto : ");
 			auxCod = ler.next().toUpperCase();
