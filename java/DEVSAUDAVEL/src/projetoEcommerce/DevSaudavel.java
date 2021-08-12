@@ -1,5 +1,4 @@
-package projeto;
-
+package projetoEcommerce;
 
 	import java.time.LocalDateTime;
 	import java.time.format.DateTimeFormatter;
@@ -83,8 +82,7 @@ package projeto;
 										while(auxCod.equalsIgnoreCase(codProduto[contador])){
 											contador++;
 										}
-									}//Caso deseja modificar o produto existente no carrinho
-										
+									}//Caso deseja modificar o produto existente no carrinho		
 								}
 	//Fim ANA 
 	//Início HENRIQUE 
@@ -134,13 +132,17 @@ package projeto;
 						 			System.out.print("\nDeseja continuar a compra [S/N] ?: ");
 						 			continua = ler.next().toUpperCase().charAt(0);
 						 		}while(continua != 'S' && continua != 'N');
-						 		
-						 		tituloTabela(); //Maic
-						 		for (contador = 0 ; contador < 10 ; contador++) {
-						 			if (continua == 'S') {
-					 				System.out.print("\n\t♥     "+codProduto[contador]+" \t♥\t"+produto[contador]+"\t♥\t"+preco[contador]+"\t   ♥\t  "+estoque[contador]+"\t   ♥");
-						 			}
+						 		if(continua == 'S') {
+						 			tituloTabela(); //Maic
+							 		for (contador = 0 ; contador < 10 ; contador++) {
+							 			if (continua == 'S') {
+						 				System.out.print("\n\t♥     "+codProduto[contador]+" \t♥\t"+produto[contador]+"\t♥\t"+preco[contador]+"\t   ♥\t  "+estoque[contador]+"\t   ♥");
+							 			}
+							 		}
+						 			
+						 			
 						 		}
+						 
 					 		linha(true); //Maic	
 						}while (continua == 'S');
 	//Fim HENRIQUE 
@@ -278,11 +280,11 @@ package projeto;
 		//Cabeçalho nota fiscal
 		public static void linhaNota (boolean forte){
 			if (forte){
-				System.out.println("======================================= NOTA FISCAL =========================================\n");
-				System.out.println("\nwww.devsaudavel.com.br || versão 2.0\n");
-				System.out.println("\t\t\t\t  *****DEV SAUDÁVEL*****\n");
+				System.out.println("======================================= NOTA FISCAL =========================================");
+				System.out.println("www.devsaudavel.com.br || versão 2.0\n");
+				System.out.println("\t\t\t\t  *****DEV SAUDÁVEL*****");
 				System.out.println("\t\t\t\t  Programando a sua saúde\n");
-				System.out.println("\n\n♥    CÓDIGO\t♥\t PRODUTO\t♥    VALOR (R$)    ♥    QTDD    ♥     TOTAL (R$)    ♥\n");
+				System.out.println("\n♥    CÓDIGO\t♥\t PRODUTO\t♥    VALOR (R$)    ♥    QTDD    ♥     TOTAL (R$)    ♥");
 			}
 			else {
 				System.out.println("\n=============================================================================================\n");

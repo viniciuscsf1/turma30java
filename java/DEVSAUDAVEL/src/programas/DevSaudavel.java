@@ -1,15 +1,62 @@
 package programas;
 
-import classes.Site;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
-public class DevSaudavel {
+import classesEcommerce.Produto;
+import classesEcommerce.Funcoes;
+
+import java.util.List;
+import java.util.Scanner;
+
+public class DevSaudavel extends Funcoes {
 
 	public static void main(String[] args) {
-		Site prod1 = new Site("G3-1","Glutamina", 30.0, 10);
-		
-		prod1.incluiEstoque(-246);
-		System.out.println(prod1.getEstoque());
-	
-	}
+		Scanner ler = new Scanner(System.in);
+		String auxCod;
+		int contador = 0;
+		int auxQuant = 0;
 
+		List<Produto> lista = new ArrayList<>();	
+		
+		lista.add(new Produto("G3-01","Glutamina",30.00,10));
+		lista.add(new Produto("G3-02","Vitamina C",15.00,10));
+		lista.add(new Produto("G3-03","Regata Cav",45.00,10));
+		lista.add(new Produto("G3-04","Tenis Sports",100.00,10));
+		lista.add(new Produto("G3-05","Whey Prot",75.00,10));
+		lista.add(new Produto("G3-06","Snacks Div",10.00,10));
+		lista.add(new Produto("G3-07","C.Legging",80.00,10));
+		lista.add(new Produto("G3-08","Camiseta",25.00,10));
+		lista.add(new Produto("G3-09","BCAA CAPS",50.00,10));
+		lista.add(new Produto("G3-10","Corda P.",22.00,10));
+		
+		apresentaTabela(lista);
+
+			System.out.print("\nDigite o código do produto : ");
+			auxCod = ler.next().toUpperCase();
+		
+			for(contador = 0;contador < lista.size();contador++) {
+				if(lista.get(contador).getCodProduto().equals(auxCod)) {
+					
+					System.out.println("Código : "+ lista.get(contador).getCodProduto() + "\nProduto : "+ lista.get(contador).getProduto() +
+							"\nValor : "+ lista.get(contador).getPreco()+"\nEstoque : "+lista.get(contador).getEstoque());
+					
+					System.out.print("\nDigite a quantidade desejada : ");
+					auxQuant = ler.nextInt();
+					while (auxQuant<=0) {
+				 		System.out.print("Valor inválido, digite novamente: ");
+				 		auxQuant = ler.nextInt();
+				 	}
+					if (auxQuant > lista.get(contador).getEstoque()) {
+			 			while (auxQuant > lista.get(contador).getEstoque() && lista.get(contador).getEstoque() <= 0) {
+			 			System.out.print("\nDigite a quantidade mediante o estoque !");	
+			 			System.out.print("\n\nDigite a quantidade desejada : ");
+			 			auxQuant = ler.nextInt();
+			 			}
+	
+				}	
+			}	
+		}	
+	}
 }

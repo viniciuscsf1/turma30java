@@ -1,16 +1,18 @@
-package classes;
+package classesEcommerce;
 
-public class Site {
-	private String codProduto;
-	private String produto;
-	private double preco;
-	private int estoque;
-	private char desejaEntraNoSite;
-	private char desejaVoltarParaSite;
+import java.util.List;
+import java.util.Scanner;
+
+public class Produto {
+	//========================ATRIBUTOS=========================
+	protected String codProduto;
+	protected String produto;
+	protected double preco;
+	protected int estoque;
 	
 	//============================ CONSTRUTORES ================================
 	
-	public Site(String codProduto, String produto, double preco, int estoque) {
+	public Produto (String codProduto, String produto, double preco, int estoque) {		
 		super();
 		this.codProduto = codProduto;
 		this.produto = produto;
@@ -56,7 +58,7 @@ public class Site {
 	public void setEstoque(int estoque) {
 		this.estoque = estoque;
 	}
-	//============================ OS MÉTODOS COMEÇAM A PARTIR DAQUI ================================
+	//============================ MÉTODOS ESTOQUE ================================
 	
 	public void incluiEstoque(int quantidade) {
         if (quantidade <= 0) {
@@ -73,9 +75,7 @@ public class Site {
         } else {
             this.estoque = this.estoque - quantidade;
         }
-
-
     }
-
+    
 
 }
