@@ -1,17 +1,12 @@
 package classesEcommerce;
 
-import java.util.List;
-import java.util.Scanner;
-
 public class Produto {
-	//========================ATRIBUTOS=========================
-	protected String codProduto;
-	protected String produto;
-	protected double preco;
-	protected int estoque;
-	
-	//============================ CONSTRUTORES ================================
-	
+	//ATRIBUTOS 
+	private String codProduto;
+	private String produto;
+	private double preco;
+	private int estoque;
+	//CONSTRUTORES
 	public Produto (String codProduto, String produto, double preco, int estoque) {		
 		super();
 		this.codProduto = codProduto;
@@ -25,12 +20,11 @@ public class Produto {
             this.estoque = estoque;
         }
 	}
-
-	//============================ GETTERS AND SETTERS ================================
+	//GETTERS AND SETTERS
 	public String getCodProduto() {
 		return codProduto;
 	}
-
+	
 	public void setCodProduto(String codProduto) {
 		this.codProduto = codProduto;
 	}
@@ -47,10 +41,6 @@ public class Produto {
 		return preco;
 	}
 
-	/*public void setPreco(double preco) {
-		this.preco = preco;
-	}*/
-
 	public int getEstoque() {
 		return estoque;
 	}
@@ -58,17 +48,14 @@ public class Produto {
 	public void setEstoque(int estoque) {
 		this.estoque = estoque;
 	}
-	//============================ MÉTODOS ESTOQUE ================================
-	
+	//MÉTODOS ESTOQUE
 	public void incluiEstoque(int quantidade) {
         if (quantidade <= 0) {
             System.out.println("Quantidade incorreta!!! Tente de novo!!!");
         } else {
             this.estoque = this.estoque + quantidade;
         }
-
     }
-
     public void retiraEstoque(int quantidade) {
         if (quantidade > estoque) {
             System.out.println("Quantidade indisponivel");
@@ -76,6 +63,4 @@ public class Produto {
             this.estoque = this.estoque - quantidade;
         }
     }
-    
-
 }
