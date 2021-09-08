@@ -1,17 +1,15 @@
-package org.generation.blogPessoal.service;
+package org.generation.GameStore.service;
 
 import java.nio.charset.Charset;
 import java.util.Optional;
 
 import org.apache.commons.codec.binary.Base64;
-import org.generation.blogPessoal.model.UserLogin;
-import org.generation.blogPessoal.model.Usuario;
-import org.generation.blogPessoal.repository.UsuarioRepository;
+import org.generation.GameStore.model.UserLogin;
+import org.generation.GameStore.model.Usuario;
+import org.generation.GameStore.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-
-//Essa sera a classe responsável por encriptar as senhas de modo que nem mesmo o desenvolvedor possa vê-la
 
 @Service
 public class UsuarioService {
@@ -24,7 +22,6 @@ public class UsuarioService {
 		if(user.isPresent()) {
 			return Optional.ofNullable(null);
 		}
-		
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 		
 		String senhaEncoder = encoder.encode(usuario.getSenha());
@@ -32,7 +29,6 @@ public class UsuarioService {
 		
 		return Optional.of(repository.save(usuario));
 	}
-	
 	public Optional <UserLogin> Logar(Optional<UserLogin> user) {
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 		Optional <Usuario> usuario = repository.findByUsuario(user.get().getUsuario());
@@ -52,5 +48,4 @@ public class UsuarioService {
 		}
 		return null;
 	}
-
 }

@@ -1,4 +1,4 @@
-package org.generation.blogPessoal.seguranca;
+package org.generation.GameStore.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -11,16 +11,15 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-@EnableWebSecurity			//Habilitando a configuração de web security
+@EnableWebSecurity
 public class BasicSecurityConfig extends WebSecurityConfigurerAdapter{
 	
-	//Injetando uma classe "UserDetailsService" que já existe na WebSecurityConfigurerAdapter
 	@Autowired
-	private UserDetailsService userDetailsService;			
-	
+	private UserDetailsService userDetailsService;
+
 	
 	@Override
-	protected void configure(AuthenticationManagerBuilder auth) throws Exception{
+	protected void configure (AuthenticationManagerBuilder auth) throws Exception{
 		auth.userDetailsService(userDetailsService);
 	}
 	
@@ -30,7 +29,7 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter{
 	}
 	
 	@Override
-	protected void configure(HttpSecurity http) throws Exception {
+	protected void configure(HttpSecurity http) throws Exception{
 		http.authorizeRequests()
 		.antMatchers("/usuarios/logar").permitAll()
 		.antMatchers("/usuarios/cadastrar").permitAll()
@@ -40,5 +39,4 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter{
 		.and().cors()
 		.and().csrf().disable();
 	}
-	
 }
